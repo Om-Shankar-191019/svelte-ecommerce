@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
   import { allProducts } from "../stores/productStore.js";
-  //   import ProductCard from "$lib/ProductCard.svelte";
   import ProductList from "$lib/ProductList.svelte";
 
   onMount(async () => {

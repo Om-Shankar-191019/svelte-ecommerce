@@ -56,8 +56,8 @@
         <button on:click={() => (isOpenHamberg = !isOpenHamberg)}>
           <a
             class="opacity-60 font-bold hover:underline"
-            class:text-red-600={$page.url.pathname === "/category"}
-            href="/category">Category</a
+            class:text-red-600={$page.url.pathname === "/products"}
+            href="/products">products</a
           >
           <span class="opacity-50">&rsaquo;</span>
         </button>
@@ -92,8 +92,8 @@
     <li>
       <a
         class="opacity-60 font-bold hover:underline"
-        class:text-red-600={$page.url.pathname === "/category"}
-        href="/category">Category</a
+        class:text-red-600={$page.url.pathname === "/products"}
+        href="/products">Products</a
       >
     </li>
     <li class="opacity-50">&rsaquo;</li>
