@@ -2,7 +2,25 @@
   import { page } from "$app/stores";
   import { Menu } from "lucide-svelte";
   import { SquareX } from "lucide-svelte";
+  import { allProducts, searchTerm } from "../stores/productStore";
+  import { debounce } from "./utils/debounce";
   let isOpenHamberg = false;
+  let searchInput = "";
+
+  // let searchedProducts = [];
+  // allProducts.subscribe((value) => {
+  //   searchedProducts = value;
+  // });
+
+  // const runSearch = debounce((term) => {
+  //   let filteredProducts = searchedProducts.filter((product) => {
+  //     product.title.toLowerCase().includes(term.toLowerCase());
+  //   });
+  //   // allProducts.set(filteredProducts);
+  //   $allProducts = filteredProducts;
+  // }, 300);
+
+  // $: runSearch(searchInput);
 </script>
 
 <nav class="flex justify-between items-center">
@@ -18,6 +36,7 @@
       class="outline-none p-2 pl-4 w-40 sm:w-60 md:74 lg:w-96"
       type="text"
       placeholder="search item ... "
+      bind:value={searchInput}
     />
   </div>
 
@@ -56,7 +75,7 @@
         <button on:click={() => (isOpenHamberg = !isOpenHamberg)}>
           <a
             class="opacity-60 font-bold hover:underline"
-            class:text-red-600={$page.url.pathname === "/products"}
+            class:text-red-600={$page.url.pathname.startsWith("/products")}
             href="/products">products</a
           >
           <span class="opacity-50">&rsaquo;</span>
@@ -92,7 +111,7 @@
     <li>
       <a
         class="opacity-60 font-bold hover:underline"
-        class:text-red-600={$page.url.pathname === "/products"}
+        class:text-red-600={$page.url.pathname.startsWith("/products")}
         href="/products">Products</a
       >
     </li>
